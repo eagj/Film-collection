@@ -1,2 +1,2 @@
-# coleecion_pelis
-coleecion de peliculas que tengo
+# coleccion_pelis
+coleccion de peliculas que tengo
