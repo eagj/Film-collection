@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fba9b884-3b1d-4ace-8b94-8d9a8e7790f9" name="ufopi.ddns.net" url="http://ufopi.ddns.net:8090/pelis/">
+        <fileTransfer host="ufopi.ddns.net" port="22" rootFolder="/media/gitprojects/www/pelis" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

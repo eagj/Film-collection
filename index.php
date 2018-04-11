@@ -1,5 +1,30 @@
-<!doctype html>
-<html lang="es">
+<?php
+
+// Connecting to and selecting a MySQL database named sakila
+// Hostname: 127.0.0.1, username: your_user, password: your_pass, db: sakila
+$mysqli = new mysqli('localhost', 'pelis', '123456', 'pelis');
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Fallo en el establecimiento de la conexión");
+    exit();
+}
+
+
+//Para mostrar los acentos
+mysqli_set_charset ( $mysqli , 'utf8' );
+
+#Seleccionamos la base de datos a utilizar
+$mysqli->select_db("pelis")
+or die("Error en la selección de la base de datos");
+
+#Efectuamos la consulta SQL
+//$result = $mysqli->query("select * from listado WHERE post_mime_type like 'image%' ORDER BY post_parent DESC LIMIT 0, 4")
+$resultimg = $mysqli->query("select * from listado ORDER BY id_pelicula")
+or die("Error en la consulta SQL");
+
+
+mysqli_close($conexion);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,7 +37,7 @@
 </head>
 <body>
 <div id="home">
-    <table class="table">
+    <!--<table class="table">
         <thead class="thead-dark">
         <tr>
             <th scope="col">Foto</th>
@@ -38,7 +63,38 @@
                 <td><a href="#" title="pulsa aquí para ver todas las peliculas en Bluray"><img src="img/formato_Bluray.svg" alt="Blurary" width="50px"></a></td>
             </tr>
         </tbody>
+    </table>-->
+    <table class="table">
+        <thead class="thead-dark">
+        <tr class="text-center">
+            <th scope="col" style='display:none;'>#</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Título</th>
+            <th scope="col">Año</th>
+            <th scope="col">Género</th>
+            <th scope="col">Formato</th>
+        </tr>
+        </thead>
+        <tbody>
+
+    <?php
+					#Mostramos los resultados obtenidos
+					while( $row = $resultimg->fetch_array(MYSQLI_ASSOC)) {
+
+                        echo "<tr class='text-center'>                               
+                                <td style='display:none;'>".$row['id_pelicula']."</td>   
+                                <th scope=\"row\"><a href='#'><img src=".$row['foto']." alt=''></a></th>
+                                <td>".$row['titulo']."</td>
+                                <td>".$row['anio']."</td>
+                                <td>".$row['genero']."</td>
+                                <td><img src=\"img/formato_".$row['formato'].".svg\" alt=\"Blurary\" width=\"50px\" /></td>								
+                              </tr>";
+
+                    }
+	?>
+        </tbody>
     </table>
+
 </div>
 
 <!--BOOTSTRAP JS-->
@@ -47,5 +103,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
