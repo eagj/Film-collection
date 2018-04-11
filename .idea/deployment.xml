@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="ufopi.ddns.net">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ufopi.ddns.net" uploadOnCheckin="fba9b884-3b1d-4ace-8b94-8d9a8e7790f9">
     <serverData>
       <paths name="ufopi.ddns.net">
         <serverdata>
@@ -10,6 +10,7 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="ufopi.ddns.net" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

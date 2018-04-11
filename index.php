@@ -19,12 +19,13 @@ or die("Error en la selección de la base de datos");
 
 #Efectuamos la consulta SQL
 //$result = $mysqli->query("select * from listado WHERE post_mime_type like 'image%' ORDER BY post_parent DESC LIMIT 0, 4")
-$resultimg = $mysqli->query("select * from listado ORDER BY id_pelicula")
+$ordenpornumero = $mysqli->query("select * from peliculas ORDER BY id_pelicula")
 or die("Error en la consulta SQL");
 
 
 mysqli_close($conexion);
 ?>
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -37,66 +38,40 @@ mysqli_close($conexion);
 </head>
 <body>
 <div id="home">
-    <!--<table class="table">
+    <table class="table table-striped">
         <thead class="thead-dark">
-        <tr>
-            <th scope="col">Foto</th>
-            <th scope="col">Título</th>
-            <th scope="col">Año</th>
-            <th scope="col">Género</th>
-            <th scope="col">Formato</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"><a href="#"><img src="https://pics.filmaffinity.com/blade_runner-351607743-mmed.jpg" alt=""></a></th>
-                <td><a href="#">Blade Runner</a></td>
-                <td><a href="#">1982</a></td>
-                <td><a href="#" class="small">Ciencia ficción</a> <a href="#" class="small">Acción</a> <a href="#" class="small"><Neo-noir</a> <a href="#" class="small">Thriller futurista</a> <a href="#" class="small">Cyberpunk</a> <a href="#" class="small">Distopía</a> <a href="#" class="small">Robots</a> <a href="#" class="small">Película de culto</a></td>
-                <td><a href="#" title="pulsa aquí para ver todas las peliculas en Bluray"><img src="img/formato_Bluray.svg" alt="Blurary" width="50px"></a></td>
+            <tr class="text-center">
+                <th scope="col" style='display:none;'>#</th>
+                <th width="10%" scope="col">Foto</th>
+                <th width="30%" scope="col">Título</th>
+                <th width="10%" scope="col">Año</th>
+                <th width="40%" scope="col">Género</th>
+                <th width="10%" scope="col">Formato</th>
             </tr>
-            <tr>
-                <th scope="row"><a href="#"><img src="https://pics.filmaffinity.com/blade_runner_2049-681477614-mmed.jpg" alt=""></a></th>
-                <td><a href="#">Blade Runner 2049</a></td>
-                <td><a href="#">2017</a></td>
-                <td><a href="#" class="small">Ciencia ficción</a> <a href="#" class="small">Cyberpunk</a> <a href="#" class="small">Secuela</a> <a href="#" class="small">Thriller futurista</a></td>
-                <td><a href="#" title="pulsa aquí para ver todas las peliculas en Bluray"><img src="img/formato_Bluray.svg" alt="Blurary" width="50px"></a></td>
-            </tr>
-        </tbody>
-    </table>-->
-    <table class="table">
-        <thead class="thead-dark">
-        <tr class="text-center">
-            <th scope="col" style='display:none;'>#</th>
-            <th scope="col">Foto</th>
-            <th scope="col">Título</th>
-            <th scope="col">Año</th>
-            <th scope="col">Género</th>
-            <th scope="col">Formato</th>
-        </tr>
         </thead>
-        <tbody>
-
+        <tbody class="">
     <?php
-					#Mostramos los resultados obtenidos
-					while( $row = $resultimg->fetch_array(MYSQLI_ASSOC)) {
+        #Mostramos los resultados obtenidos
+        while( $row = $ordenpornumero->fetch_array(MYSQLI_ASSOC)) {
 
-                        echo "<tr class='text-center'>                               
-                                <td style='display:none;'>".$row['id_pelicula']."</td>   
-                                <th scope=\"row\"><a href='#'><img src=".$row['foto']." alt=''></a></th>
-                                <td>".$row['titulo']."</td>
-                                <td>".$row['anio']."</td>
-                                <td>".$row['genero']."</td>
-                                <td><img src=\"img/formato_".$row['formato'].".svg\" alt=\"Blurary\" width=\"50px\" /></td>								
-                              </tr>";
+            echo "<tr class='text-center'>                               
+                    <td style='display:none;'>".$row['id_pelicula']."</td>   
+                    <th scope=\"row\"><a href='#'><img class=\"img-fluid\" src=".$row['foto']."-msmall.jpg alt=\"".$row['titulo']."\"></a></th>
+                    <td>".$row['titulo']."</td>
+                    <td>".$row['anio']."</td>
+                    <td>".$row['genero']."</td>
+                    <td><img class=\"img-fluid\" src=\"img/formato_".$row['formato'].".svg\" alt=\"Blurary\" /></td>								
+                  </tr>";
 
-                    }
-	?>
+        }
+    ?>
         </tbody>
     </table>
 
 </div>
-
+<footer class="bg-primary text-center text-white py-5">
+    Lista de Peliculas de <a class="text-white lead" href="//eagj.net" target="_blank">EAGJ</a>
+</footer>
 <!--BOOTSTRAP JS-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
