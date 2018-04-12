@@ -1,25 +1,13 @@
 <?php
 
-// Connecting to and selecting a MySQL database named sakila
-// Hostname: 127.0.0.1, username: your_user, password: your_pass, db: sakila
-$mysqli = new mysqli('localhost', 'pelis', '123456', 'pelis');
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Fallo en el establecimiento de la conexión");
-    exit();
-}
+include("conexion.php");
 
 
-//Para mostrar los acentos
-mysqli_set_charset ( $mysqli , 'utf8' );
-
-#Seleccionamos la base de datos a utilizar
-$mysqli->select_db("pelis")
-or die("Error en la selección de la base de datos");
+#Efectuamos la consulta SQL
+$ordenpornumero = $conexion->query("select * from peliculas ORDER BY id_pelicula")
+or die("Error en la consulta SQL");
 
 
-
-mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
 <head>
