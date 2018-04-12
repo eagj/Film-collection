@@ -4,3 +4,32 @@
 /*#home th img{
     max-width: 50px;
 }*/
+
+#ficha header{
+    height: 300px;
+    position: relative;
+}
+#ficha header::after{
+    position: absolute;
+    z-index: 1;
+    content:" " ;
+    opacity:.4;
+    background-image: url(https://pics.filmaffinity.com/blade_runner-351607743-large.jpg);
+    background-position: center -300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    top:0;
+    left:0;
+    height: 100%;
+}
+    #ficha header h1{
+        text-shadow: 1px 1px 0 #000;
+        z-index: 2;
+        text-transform: uppercase;
+    }
+    #ficha .foto{
+        margin-top: -50px;
+        z-index: 2;
+        position: relative;
+    }

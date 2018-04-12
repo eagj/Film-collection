@@ -1,14 +1,4 @@
-<?php
 
-include("conexion.php");
-
-
-#Efectuamos la consulta SQL
-$ordenpornumero = $conexion->query("select * from peliculas ORDER BY id_pelicula")
-or die("Error en la consulta SQL");
-
-
-?>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -21,25 +11,19 @@ or die("Error en la consulta SQL");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<form action="insertar.php" method="post" name="form">
+    <label for="titulo">Titulo
+        <input type="text" name="titulo" placeholder="Titulo">
+    </label>
+    <label for="foto">Url foto</label>
+    <input type="text" name="foto" placeholder="Url foto">
+
+    <input type="submit" value="insertar peli">
+</form>
+<!-- FOOTER-->
 <?php
-if ($enviar) {
-    // process form
-    $sql = "INSERT INTO peliculas (foto) ".
-        "VALUES ('$foto')";
-    $result = $mysqli->query($sql);
-    echo "¡Gracias! Hemos recibido sus datos.\n";
-}else{
-    ?>
-
-    <form method="post" action="">
-        foto   :<input type="Text" name="foto"><br>
-        <input type="Submit" name="enviar" value="Aceptar información">
-    </form>
-
-    <?php
-} //end if
+include("includes/footer.php");
 ?>
-
 <!--BOOTSTRAP JS-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
