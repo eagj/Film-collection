@@ -41,10 +41,10 @@ or die("Error en la consulta SQL");
             echo "<tr class='text-center'>                               
                     <td style='display:none;'>".$row['id_pelicula']."</td>   
                     <th scope=\"row\"><a href='ficha.php?idpeli=".$row['id_pelicula']."'><img class=\"img-fluid\" src=".$row['foto']."-msmall.jpg alt=\"".$row['titulo']."\"></a></th>
-                    <td>".$row['titulo']."</td>
-                    <td>".$row['anio']."</td>
-                    <td>".$row['genero']."</td>
-                    <td><img class=\"img-fluid\" src=\"img/formato_".$row['formato'].".svg\" alt=\"".$row['formato']."\"/></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['titulo']."</a></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['anio']."</a></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['genero']."</a></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'><img class=\"img-fluid\" src=\"img/formato_".$row['formato'].".svg\" alt=\"".$row['formato']."\"/></a></td>
                   </tr>";
 
         }
