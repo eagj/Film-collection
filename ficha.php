@@ -2,7 +2,7 @@
 
 include("includes/conexion.php");
 
-$idpeli=$_GET['idpeli'];;
+$idpeli=$_GET['idpeli'];
 
 #Efectuamos la consulta SQL
 $fichadatos = $conexion->query("select * from peliculas WHERE id_pelicula=$idpeli")
