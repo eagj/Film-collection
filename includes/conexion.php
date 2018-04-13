@@ -18,5 +18,6 @@
     $conexion->select_db("pelis")
     or die("Error en la selección de la base de datos");
 
+
     mysqli_close($conexion);
 ?>

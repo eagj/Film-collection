@@ -40,7 +40,7 @@ or die("Error en la consulta SQL");
 
             echo "<tr class='text-center'>                               
                     <td style='display:none;'>".$row['id_pelicula']."</td>   
-                    <th scope=\"row\"><a href='#'><img class=\"img-fluid\" src=".$row['foto']."-msmall.jpg alt=\"".$row['titulo']."\"></a></th>
+                    <th scope=\"row\"><a href='ficha.php?idpeli=".$row['id_pelicula']."'><img class=\"img-fluid\" src=".$row['foto']."-msmall.jpg alt=\"".$row['titulo']."\"></a></th>
                     <td>".$row['titulo']."</td>
                     <td>".$row['anio']."</td>
                     <td>".$row['genero']."</td>

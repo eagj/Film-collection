@@ -14,7 +14,7 @@
     z-index: 1;
     content:" " ;
     opacity:.4;
-    background-image: url(https://pics.filmaffinity.com/blade_runner-351607743-large.jpg);
+    /*background-image: url(https://pics.filmaffinity.com/blade_runner-351607743-large.jpg);*/
     background-position: center -300px;
     background-repeat: no-repeat;
     background-size: cover;
