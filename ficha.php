@@ -42,7 +42,7 @@ or die("Error en la consulta SQL");
         <div class=\"row\">
             <div class=\"col-4\">
                 <div class=\"foto text-center\">
-                    <img class=\"img-fluid\" src=".$row['foto']."-mmed.jpg alt=\"".$row['titulo']."\">
+                    <img class=\"img-fluid rounded border border-dark\" src=".$row['foto']."-mmed.jpg alt=\"".$row['titulo']."\">
                 </div>
             </div>
 
@@ -53,8 +53,9 @@ or die("Error en la consulta SQL");
                 <p><b> Guión:</b ></p>
                 <p><b> Música:</b ></p>
                 <p><b> Fotografía:</b ></p>
+                 <p><b>Reparto:</b > ".$row['reparto']."</p>
                 <p><b> Género:</b ></p>
-                <p><b> Formato:</b ></p>
+                <p><b> Formato:</b> ".$row['formato']."</p>
             </div>
         </div>
        
@@ -67,7 +68,8 @@ or die("Error en la consulta SQL");
     </div>
      ";
     }
-?> 
+?>
+
 </div>
 
 

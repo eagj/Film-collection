@@ -4,9 +4,12 @@ include("includes/conexion.php");
 
 
 #Efectuamos la consulta SQL
-$ordenpornumero = $conexion->query("select * from peliculas ORDER BY id_pelicula")
+$ordenpornumerotable = $conexion->query("select * from peliculas ORDER BY id_pelicula")
 or die("Error en la consulta SQL");
 
+#Efectuamos la consulta SQL
+$ordenpornumerocards = $conexion->query("select * from peliculas ORDER BY id_pelicula")
+or die("Error en la consulta SQL");
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +25,8 @@ or die("Error en la consulta SQL");
 </head>
 <body>
 <div id="home">
-    <table class="table table-striped">
+    <h1 class="bg-info m-0 text-white p-5 text-center">Listado de pelis y series</h1>
+    <table class="table table-striped"><!--d-none-->
         <thead class="thead-dark">
             <tr class="text-center">
                 <th scope="col" style='display:none;'>#</th>
@@ -36,10 +40,10 @@ or die("Error en la consulta SQL");
         <tbody class="">
     <?php
         #Mostramos los resultados obtenidos
-        while( $row = $ordenpornumero->fetch_array(MYSQLI_ASSOC)) {
+        while( $row = $ordenpornumerotable->fetch_array(MYSQLI_ASSOC)) {
 
-            echo "<tr class='text-center'>                               
-                    <td style='display:none;'>".$row['id_pelicula']."</td>   
+            echo "<tr class='text-center'>
+                    <td style='display:none;'>".$row['id_pelicula']."</td>
                     <th scope=\"row\"><a href='ficha.php?idpeli=".$row['id_pelicula']."'><img class=\"img-fluid\" src=".$row['foto']."-msmall.jpg alt=\"".$row['titulo']."\"></a></th>
                     <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['titulo']."</a></td>
                     <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['anio']."</a></td>
@@ -51,8 +55,32 @@ or die("Error en la consulta SQL");
     ?>
         </tbody>
     </table>
+    <!--CARDS-->
+    <div class="container">
+        <div class="row my-5"><!--row-->
 
-</div>
+    <?php
+        #Mostramos los resultados obtenidos
+        while( $row = $ordenpornumerocards->fetch_array(MYSQLI_ASSOC)) {
+            echo "<div class=\"col-md-3 col-sm-6 my-2\"><!--columna-->
+                    <div class=\"card\"><!--card-->
+                        <div class=\"imgcard\">
+                            <img class=\"card-img-top img-fluid\" src=".$row['foto']."-mmed.jpg alt=\"".$row['titulo']."\">
+                        </div>
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title text-info\">".$row['titulo']."</h5>
+                            <p class=\"card-text\"><b>año:</b> ".$row['anio']."</p>
+                            <p class=\"card-text\"><b>formato:</b> ".$row['formato']."</p>
+                            <a href=\"ficha.php?idpeli=".$row['id_pelicula']."\" class=\"btn btn-primary\">Ver ficha</a>
+                        </div>
+                    </div><!--card-->
+                </div><!--columna-->";
+        }
+    ?>
+
+        </div><!--row-->
+    </div><!--HOME-->
+</div><!--HOME-->
 <?php
     include("includes/footer.php");
 ?>

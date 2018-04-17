@@ -1,3 +1,4 @@
+/*INDEX*/
 #home .table td, #home .table th{
     vertical-align: middle !important;
 }
@@ -5,6 +6,14 @@
     max-width: 50px;
 }*/
 
+#home .card .imgcard{
+    overflow: hidden;
+    max-height:350px
+}
+
+
+
+/*FICHA*/
 #ficha header{
     height: 300px;
     position: relative;
@@ -14,7 +23,6 @@
     z-index: 1;
     content:" " ;
     opacity:.4;
-    /*background-image: url(https://pics.filmaffinity.com/blade_runner-351607743-large.jpg);*/
     background-position: center -300px;
     background-repeat: no-repeat;
     background-size: cover;
