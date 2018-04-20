@@ -1,20 +1,15 @@
 <?php
 
-include_once 'includes/conexion.php';
+include("includes/conexionBK_SINPDO.php");
 
 
-//LEER
-$resultadospelis='SELECT * FROM peliculas';
-//ACTORES
-//$resultadosactores='SELECT * FROM actor_pelis';
-$gsent = $conexion->prepare($resultadospelis);
-//$gsent_actores = $conexion->prepare($resultadosactores);
-$gsent->execute();
-//$gsent_actores->execute();
-$resultado= $gsent->fetchAll();
-//$actores=$gsent_actores->fetchAll();
+#Efectuamos la consulta SQL
+$ordenpornumerotable = $conexion->query("select * from peliculas ORDER BY id_pelicula")
+or die("Error en la consulta SQL");
 
-//var_dump($resultado[1]);
+#Efectuamos la consulta SQL
+$ordenpornumerocards = $conexion->query("select * from peliculas ORDER BY id_pelicula")
+or die("Error en la consulta SQL");
 
 ?>
 <!DOCTYPE html>
@@ -34,6 +29,7 @@ $resultado= $gsent->fetchAll();
     <table class="table table-striped"><!--d-none-->
         <thead class="thead-dark">
             <tr class="text-center">
+                <th scope="col" style='display:none;'>#</th>
                 <th width="10%" scope="col">Foto</th>
                 <th width="30%" scope="col">Título</th>
                 <th width="10%" scope="col">Año</th>
@@ -42,17 +38,21 @@ $resultado= $gsent->fetchAll();
             </tr>
         </thead>
         <tbody class="">
-    <?php foreach ($resultado as $row): ?>
-        <tr class='text-center'>
-            <th scope="row"><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'> <img class="img-fluid" src="<?php echo $row['foto']?>-msmall.jpg"  alt="<?php echo $row['titulo']?>"></a></th>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'> <?php echo $row['titulo']?></a></td>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><?php echo $row['anio']?></a></td>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><?php echo $row['genero']?></a></td>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><img class="img-fluid" src="img/formato_<?php echo $row['formato']?>.svg" alt="<?php echo $row['formato']?>"></a></td>
-          </tr>
-    <?php endforeach;?>
+    <?php
+        #Mostramos los resultados obtenidos
+        while( $row = $ordenpornumerotable->fetch_array(MYSQLI_ASSOC)) {
 
+            echo "<tr class='text-center'>
+                    <td style='display:none;'>".$row['id_pelicula']."</td>
+                    <th scope=\"row\"><a href='ficha.php?idpeli=".$row['id_pelicula']."'><img class=\"img-fluid\" src=".$row['foto']."-msmall.jpg alt=\"".$row['titulo']."\"></a></th>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['titulo']."</a></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['anio']."</a></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'>".$row['genero']."</a></td>
+                    <td><a href='ficha.php?idpeli=".$row['id_pelicula']."'><img class=\"img-fluid\" src=\"img/formato_".$row['formato'].".svg\" alt=\"".$row['formato']."\"/></a></td>
+                  </tr>";
 
+        }
+    ?>
         </tbody>
     </table>
     <!--CARDS-->

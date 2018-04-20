@@ -1,6 +1,6 @@
 <?php
 
-include("includes/conexion.php");
+include("includes/conexionBK_SINPDO.php");
 
 $titulo = $_POST['titulo'];
 $foto = $_POST['foto'];

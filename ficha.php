@@ -1,10 +1,11 @@
 <?php
 
-include("includes/conexion.php");
+include("includes/conexionBK_SINPDO.php");
 
 $idpeli=$_GET['idpeli'];
 
 #Efectuamos la consulta SQL
+#$fichadatos = $conexion->query("select * from peliculas, actor_pelis WHERE id_pelicula=$idpeli")
 $fichadatos = $conexion->query("select * from peliculas WHERE id_pelicula=$idpeli")
 or die("Error en la consulta SQL");
 
@@ -28,6 +29,7 @@ or die("Error en la consulta SQL");
 <?php
     #Mostramos los resultados obtenidos
     while( $row = $fichadatos->fetch_array(MYSQLI_ASSOC)) {
+    #$row = $fichadatos->fetch_array(MYSQLI_ASSOC)) {
     echo"
     <!--ESTILO EN LINEA PARA BG DE FOTO -->
     <style>
@@ -53,7 +55,7 @@ or die("Error en la consulta SQL");
                 <p><b> Guión:</b ></p>
                 <p><b> Música:</b ></p>
                 <p><b> Fotografía:</b ></p>
-                 <p><b>Reparto:</b > ".$row['reparto']."</p>
+                 <p><b>Reparto:</b > ".$row['actor_pelis_id_actor']."</p>
                 <p><b> Género:</b ></p>
                 <p><b> Formato:</b> ".$row['formato']."</p>
             </div>
