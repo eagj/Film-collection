@@ -4,15 +4,19 @@ include_once 'includes/conexion.php';
 
 
 //LEER
+//PELIS
 $resultadospelis='SELECT * FROM peliculas';
 //ACTORES
-//$resultadosactores='SELECT * FROM actor_pelis';
+$resultadosactores='SELECT actores_nombre_actor from actores where actores_id_actor in (select actor_pelis_id_actor from actor_pelis where actor_pelis_id_pelicula = 2)';
+
+//CONEXION SQL
 $gsent = $conexion->prepare($resultadospelis);
-//$gsent_actores = $conexion->prepare($resultadosactores);
 $gsent->execute();
-//$gsent_actores->execute();
 $resultado= $gsent->fetchAll();
-//$actores=$gsent_actores->fetchAll();
+
+$gsent_actores = $conexion->prepare($resultadosactores);
+$gsent_actores->execute();
+$actores=$gsent_actores->fetchAll();
 
 //var_dump($resultado[1]);
 
@@ -43,13 +47,31 @@ $resultado= $gsent->fetchAll();
         </thead>
         <tbody class="">
     <?php foreach ($resultado as $row): ?>
+
+
         <tr class='text-center'>
-            <th scope="row"><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'> <img class="img-fluid" src="<?php echo $row['foto']?>-msmall.jpg"  alt="<?php echo $row['titulo']?>"></a></th>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'> <?php echo $row['titulo']?></a></td>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><?php echo $row['anio']?></a></td>
-            <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><?php echo $row['genero']?></a></td>
+            <th scope="row">
+                <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'>
+                    <img class="img-fluid" src="<?php echo $row['foto']?>-msmall.jpg"  alt="<?php echo $row['titulo']?>">
+                </a>
+            </th>
+            <td>
+                <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'> <?php echo $row['titulo']?></a>
+            </td>
+            <td>
+                <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><?php echo $row['anio']?></a>
+            </td>
+
+            <!--JAVIIIIII ES ASIIIIIIIII?-->
+            <td>
+                <?php foreach ($actores as $reparto): ?>
+                    <?php echo $reparto['actores_nombre_actor']?>
+                <?php endforeach;?>
+            </td>
+
             <td><a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'><img class="img-fluid" src="img/formato_<?php echo $row['formato']?>.svg" alt="<?php echo $row['formato']?>"></a></td>
           </tr>
+
     <?php endforeach;?>
 
 
