@@ -4,19 +4,14 @@ include_once 'includes/conexion.php';
 
 
 //LEER
-//PELIS
 $resultadospelis='SELECT * FROM peliculas';
-//ACTORES
-$resultadosactores='SELECT actores_nombre_actor from actores where actores_id_actor in (select actor_pelis_id_actor from actor_pelis where actor_pelis_id_pelicula = 2)';
 
 //CONEXION SQL
 $gsent = $conexion->prepare($resultadospelis);
 $gsent->execute();
 $resultado= $gsent->fetchAll();
 
-$gsent_actores = $conexion->prepare($resultadosactores);
-$gsent_actores->execute();
-$actores=$gsent_actores->fetchAll();
+
 
 //var_dump($resultado[1]);
 
@@ -64,8 +59,15 @@ $actores=$gsent_actores->fetchAll();
 
             <!--JAVIIIIII ES ASIIIIIIIII?-->
             <td>
-                <?php foreach ($actores as $reparto): ?>
-                    <?php echo $reparto['actores_nombre_actor']?>
+                <?php
+                    //$resultadosactores='SELECT actores_nombre_actor from actores where actores_id_actor in (select actor_pelis_id_actor from actor_pelis where actor_pelis_id_pelicula = '.$row['id_pelicula'].')';
+                    $resultadogeneros='SELECT generos_genero from generos where generos_id in (select generos_pelis_id_genero from generos_pelis where generos_pelis_id_pelicula = '.$row['id_pelicula'].')';
+                    $gsent_reparto = $conexion->prepare($resultadogeneros);
+                    $gsent_reparto->execute();
+                    $ageneros=$gsent_reparto->fetchAll();
+                    foreach ($ageneros as $genero):
+                ?>
+                    <?php echo $genero['generos_genero']?>
                 <?php endforeach;?>
             </td>
 
