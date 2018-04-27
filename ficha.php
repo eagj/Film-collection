@@ -1,15 +1,21 @@
 <?php
 
-include("includes/conexionBK_SINPDO.php");
+include_once 'includes/conexion.php';
 
+//GET   VARIABLE DE PELICULA
 $idpeli=$_GET['idpeli'];
 
-#Efectuamos la consulta SQL
-#$fichadatos = $conexion->query("select * from peliculas, actor_pelis WHERE id_pelicula=$idpeli")
-$fichadatos = $conexion->query("select * from peliculas WHERE id_pelicula=$idpeli")
-or die("Error en la consulta SQL");
 
+//LEER
+$resultadospeli='select * from peliculas WHERE id_pelicula = '.$idpeli.'';
 
+//CONEXION SQL
+$gsent = $conexion->prepare($resultadospeli);
+$gsent->execute();
+$fichadatos= $gsent->fetchAll();
+
+//var_dump($resultadospeli);
+//echo $idpeli;
 ?>
 
 <!DOCTYPE html>
@@ -26,51 +32,50 @@ or die("Error en la consulta SQL");
 <body>
 
 <div id="ficha">
-<?php
-    #Mostramos los resultados obtenidos
-    while( $row = $fichadatos->fetch_array(MYSQLI_ASSOC)) {
-    #$row = $fichadatos->fetch_array(MYSQLI_ASSOC)) {
-    echo"
-    <!--ESTILO EN LINEA PARA BG DE FOTO -->
-    <style>
-        #ficha header::after{background-image: url(".$row['foto']."-large.jpg);}
-    </style>
-    <header class=\"row align-items-center text-center container-fluid text-white bg-dark m-0\">
+
+    <?php
+
+        foreach ($fichadatos as $row):
+    ?>
+
+        <!--ESTILO EN LINEA PARA BG DE FOTO -->
+        <style>
+            #ficha header::after{background-image: url(<?php echo $row['foto']?>-large.jpg);}
+        </style>
+        <header class="row align-items-center text-center container-fluid text-white bg-dark m-0">
+            <h1 class="col-12 display-1 text-info"><?php echo $row['titulo']?></h1>
+        </header>
     
-        <h1 class=\"col-12 display-1 text-info\">".$row['titulo']."</h1>
-    </header>
-    
-    <div class=\"container my-3\">
-        <div class=\"row\">
-            <div class=\"col-4\">
-                <div class=\"foto text-center\">
-                    <img class=\"img-fluid rounded border border-dark\" src=".$row['foto']."-mmed.jpg alt=\"".$row['titulo']."\">
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-4">
+                    <div class="foto text-center">
+                        <img class="img-fluid rounded border border-dark" src="<?php echo $row['foto']?>-msmall.jpg" alt="<?php echo $row['titulo']?>"/>
+                    </div>
+                </div>
+
+                <div class="col-7" >
+                    <p><b> Año:</b> <?php echo $row['anio']?></p>
+                    <p><b> Duración:</b> <?php echo $row['duracion']?> min .</p>
+                    <p><b> Dirección:</b> </p>
+                    <p><b> Guión:</b></p>
+                    <p><b> Música:</b></p>
+                    <p><b> Fotografía:</b></p>
+                     <p><b>Reparto:</b> </p>
+                    <p><b> Género:</b></p>
+                    <p><b> Formato:</b> <?php echo $row['formato']?></p>
                 </div>
             </div>
-
-            <div class=\"col-7\" >
-                <p><b> Año:</b> ".$row['anio']."</p>
-                <p><b> Duración:</b > ".$row['duracion']." min .</p>
-                <p><b> Dirección:</b ></p>
-                <p><b> Guión:</b ></p>
-                <p><b> Música:</b ></p>
-                <p><b> Fotografía:</b ></p>
-                 <p><b>Reparto:</b > ".$row['actor_pelis_id_actor']."</p>
-                <p><b> Género:</b ></p>
-                <p><b> Formato:</b> ".$row['formato']."</p>
+            <div class="row my-3" >
+                <div class="col-12" >
+                    <h3 class="display-4 text-center text-info"> Sinopsis</h3>
+                    <p><?php echo $row['sinopsis']?></p >
+                </div>
             </div>
-        </div>
-       
-        <div class=\"row my-3\" >
-            <div class=\"col-12\" >
-                <h3 class=\"display-4 text-center text-info\"> Sinopsis</h3>
-                <p>".$row['sinopsis']." </p >
-            </div>
-        </div>
+    <?php endforeach;?>
     </div>
-     ";
-    }
-?>
+
+
 
 </div>
 

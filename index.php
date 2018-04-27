@@ -47,7 +47,7 @@ $resultado= $gsent->fetchAll();
         <tr class='text-center'>
             <th scope="row">
                 <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>'>
-                    <img class="img-fluid" src="<?php echo $row['foto']?>-msmall.jpg"  alt="<?php echo $row['titulo']?>">
+                    <img class="img-fluid" src="<?php echo $row['foto']?>-msmall.jpg" alt="<?php echo $row['titulo']?>">
                 </a>
             </th>
             <td>
@@ -67,7 +67,7 @@ $resultado= $gsent->fetchAll();
                     $ageneros=$gsent_reparto->fetchAll();
                     foreach ($ageneros as $genero):
                 ?>
-                    <?php echo $genero['generos_genero']?>
+                <span><?php echo $genero['generos_genero']?></span>
                 <?php endforeach;?>
             </td>
 
@@ -83,24 +83,23 @@ $resultado= $gsent->fetchAll();
     <div class="container">
         <div class="row my-5"><!--row-->
 
-    <?php
-        #Mostramos los resultados obtenidos
-        while( $row = $ordenpornumerocards->fetch_array(MYSQLI_ASSOC)) {
-            echo "<div class=\"col-md-3 col-sm-6 my-2\"><!--columna-->
-                    <div class=\"card\"><!--card-->
-                        <div class=\"imgcard\">
-                            <img class=\"card-img-top img-fluid\" src=".$row['foto']."-mmed.jpg alt=\"".$row['titulo']."\">
+        <?php foreach ($resultado as $row): ?>
+         <!--Mostramos los resultados obtenidos-->
+            <div class="col-md-3 col-sm-6 my-2"><!--columna-->
+                    <div class="card"><!--card-->
+                        <div class="imgcard">
+                            <img class="card-img-top img-fluid" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" />
                         </div>
-                        <div class=\"card-body\">
-                            <h5 class=\"card-title text-info\">".$row['titulo']."</h5>
-                            <p class=\"card-text\"><b>año:</b> ".$row['anio']."</p>
-                            <p class=\"card-text\"><b>formato:</b> ".$row['formato']."</p>
-                            <a href=\"ficha.php?idpeli=".$row['id_pelicula']."\" class=\"btn btn-primary\">Ver ficha</a>
+                        <div class="card-body">
+                            <h5 class="card-title text-info"><?php echo $row['titulo']?></h5>
+                            <p class="card-text"><b>año:</b><?php echo $row['anio']?></p>
+                            <p class="card-text"><b>formato:</b> <?php echo $row['formato']?></p>
+                            <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>' class="btn btn-primary">Ver ficha</a>
                         </div>
                     </div><!--card-->
-                </div><!--columna-->";
-        }
-    ?>
+                </div><!--columna-->
+        <?php endforeach;?>
+
 
         </div><!--row-->
     </div><!--HOME-->
