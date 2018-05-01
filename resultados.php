@@ -2,11 +2,16 @@
 
 include_once 'includes/conexion.php';
 
+//GET   VARIABLE DE PELICULA
+//$orden=$_GET['titulo'];
+$orden='titulo';
+$tipoorden='DESC';
 
 //LEER
-$resultadospelis='SELECT * FROM peliculas ORDER BY titulo ASC';
+//FICHA $resultadospeli='select * from peliculas WHERE id_pelicula = '.$idpeli.'';
+$resultadospelis='SELECT * FROM peliculas ORDER BY '.$orden.' '.$tipoorden.'';
 //ORDEN POR TITULO
-$orden='SELECT * FROM peliculas ORDER BY titulo ASC';
+//$orden='SELECT * FROM peliculas ORDER BY titulo ASC';
 
 
 //CONEXION SQL
@@ -16,7 +21,7 @@ $resultado= $gsent->fetchAll();
 
 
 
-//var_dump($resultado[1]);
+var_dump($resultadospelis);
 
 ?>
 <!DOCTYPE html>
@@ -70,7 +75,7 @@ $resultado= $gsent->fetchAll();
                     $ageneros=$gsent_reparto->fetchAll();
                     foreach ($ageneros as $genero):
                 ?>
-                <span class="small"><?php echo $genero['generos_genero']?> / </span>
+                <span class="small"><?php echo $genero['generos_genero']?>/</span>
                 <?php endforeach;?>
             </td>
 

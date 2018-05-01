@@ -1,4 +1,7 @@
 
+<?php
+include_once 'includes/conexion.php';
+?>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -11,15 +14,31 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<form action="insertar.php" method="post" name="form">
-    <label for="titulo">Titulo
-        <input type="text" name="titulo" placeholder="Titulo">
-    </label>
-    <label for="foto">Url foto</label>
-    <input type="text" name="foto" placeholder="Url foto">
+<label class="container">
+    <form action="insertar.php" method="post" name="form">
+        <label for="titulo">Titulo
+            <input type="text" name="titulo" placeholder="Titulo">
+        </label>
+        <label for="foto">Url foto
+            <input type="text" name="foto" placeholder="Url foto">
+        </label>
+        <label for="generopeli">Genero
+            <select name="generopeli" id="">
+                <?php
+                    $resultadogeneros='SELECT generos_genero FROM generos';
+                    $gsent_reparto = $conexion->prepare($resultadogeneros);
+                    $gsent_reparto->execute();
+                    $ageneros=$gsent_reparto->fetchAll();
+                foreach ($ageneros as $genero):
+                    ?>
+                    <option class="small"><?php echo $genero['generos_genero']?></option>
+                <?php endforeach;?>
+            </select>
+        </label>
 
-    <input type="submit" value="insertar peli">
-</form>
+        <input type="submit" value="insertar peli">
+    </form>
+</div>
 <!-- FOOTER-->
 <?php
 include("includes/footer.php");
@@ -28,5 +47,6 @@ include("includes/footer.php");
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
