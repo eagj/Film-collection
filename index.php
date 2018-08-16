@@ -4,7 +4,7 @@ include_once 'includes/conexion.php';
 
 
 //LEER
-$resultadospelis='SELECT * FROM peliculas ORDER BY titulo ASC';
+$resultadospelis='SELECT * FROM peliculas ORDER BY titulo ASC ';
 //ORDEN POR TITULO
 $orden='SELECT * FROM peliculas ORDER BY titulo ASC';
 
@@ -26,9 +26,9 @@ $resultado= $gsent->fetchAll();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Colección de pelis</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <?php
+        include("includes/styles.php");
+    ?>
 </head>
 <body>
 <div id="home">
@@ -83,7 +83,7 @@ $resultado= $gsent->fetchAll();
         </tbody>
     </table>
     <!--CARDS-->
-    <div class="container d-none">
+    <div id="cards" class="container d-none">
         <div class="row my-5"><!--row-->
 
         <?php foreach ($resultado as $row): ?>
