@@ -14,48 +14,76 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div id="home">
-        <table class="table d-none">
+        <table class="table d-none d-md-table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Foto</th>
                     <th scope="col">Título</th>
                     <th scope="col">Año</th>
-                    <th scope="col">Género</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Género</th>
                     <th scope="col">Formato</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"><a href="#"><img src="https://pics.filmaffinity.com/blade_runner-351607743-mmed.jpg"
-                                alt=""></a></th>
+                    <td>
+                        <a href="#"><img src="https://pics.filmaffinity.com/blade_runner-351607743-msmall.jpg"
+                                alt=""></a>
+                    </td>
                     <td><a href="#">Blade Runner</a></td>
                     <td><a href="#">1982</a></td>
-                    <td><a href="#" class="small">Ciencia ficción</a> <a href="#" class="small">Acción</a> <a href="#"
-                            class="small">
-                            <Neo-noir</a> <a href="#" class="small">Thriller futurista
-                        </a> <a href="#" class="small">Cyberpunk</a> <a href="#" class="small">Distopía</a> <a href="#"
-                            class="small">Robots</a> <a href="#" class="small">Película de culto</a></td>
+                    <td class="d-none d-lg-table-cell">
+                        <a href="#" class="small">Ciencia ficción</a>
+                        <a href=" #" class="small">Acción</a>
+                        <a href="#" class="small">Neo-noir</a>
+                        <a href="#" class="small">Thriller futurista</a>
+                        <a href="#" class="small">Cyberpunk</a>
+                        <a href="#" class="small">Distopía</a>
+                        <a href="#" class="small">Robots</a>
+                        <a href="#" class="small">Película de culto</a>
+                    </td>
                     <td><a href="#" title="pulsa aquí para ver todas las peliculas en Bluray"><img
                                 src="img/formato_Bluray.svg" alt="Blurary" width="50px"></a></td>
                 </tr>
                 <tr>
-                    <th scope="row"><a href="#"><img
-                                src="https://pics.filmaffinity.com/blade_runner_2049-681477614-mmed.jpg" alt=""></a>
-                    </th>
+                    <td><a href="#"><img src="https://pics.filmaffinity.com/blade_runner_2049-681477614-msmall.jpg"
+                                alt=""></a>
+                    </td>
                     <td><a href="#">Blade Runner 2049</a></td>
                     <td><a href="#">2017</a></td>
-                    <td><a href="#" class="small">Ciencia ficción</a> <a href="#" class="small">Cyberpunk</a> <a
-                            href="#" class="small">Secuela</a> <a href="#" class="small">Thriller futurista</a></td>
-                    <td><a href="#" title="pulsa aquí para ver todas las peliculas en Bluray"><img
-                                src="img/formato_Bluray.svg" alt="Blurary" width="50px"></a></td>
+                    <td class="d-none d-lg-table-cell">
+                        <a href="#" class="small">Ciencia ficción</a>
+                        <a href="#" class="small">Cyberpunk</a>
+                        <a href="#" class="small">Secuela</a>
+                        <a href="#" class="small">Thriller futurista</a>
+                    </td>
+                    <td>
+                        <a href="#" title="pulsa aquí para ver todas las peliculas en Bluray">
+                            <img src="img/formato_Bluray.svg" alt="Blurary" width="50px">
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
 
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-4 col-lg-3 my-3">
+                <div class="col-6 col-md-4 col-lg-3 my-3 p-1">
                     <div class="card">
                         <div class="imgcard">
                             <img class="card-img-top img-fluid"
@@ -72,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3 my-3">
+                <div class="col-6 col-md-4 col-lg-3 my-3 p-1">
                     <div class="card">
                         <div class="imgcard">
                             <img class="card-img-top img-fluid"
@@ -89,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3 my-3">
+                <div class="col-6 col-md-4 col-lg-3 my-3 p-1">
                     <div class="card">
                         <div class="imgcard">
                             <img class="card-img-top img-fluid"
@@ -106,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3 my-3">
+                <div class="col-6 col-md-4 col-lg-3 my-3 p-1">
                     <div class="card">
                         <div class="imgcard">
                             <img class="card-img-top img-fluid"
@@ -123,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3 my-3">
+                <div class="col-6 col-md-4 col-lg-3 my-3 p-1">
                     <div class="card">
                         <div class="imgcard">
                             <img class="card-img-top img-fluid"
@@ -141,7 +169,95 @@
                     </div>
                 </div>
             </div>
+            <div class="card-columns">
+                <div class="card">
+                    <div class="imgcard">
+                        <img class="card-img-top img-fluid"
+                            src="https://pics.filmaffinity.com/blade_runner-351607743-mmed.jpg" alt="Blade Runner" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Blade Runner</h5>
+                        <p class="card-text"><b>año:</b>1982</p>
+                        <p class="card-text"><b>formato:</b> <img src="img/formato_Bluray.svg" alt="Bluray"
+                                width="50px">
+                        </p>
+                        <a href='#' class="btn btn-dark">Ver ficha</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgcard">
+                        <img class="card-img-top img-fluid"
+                            src="https://pics.filmaffinity.com/blade_runner_2049-681477614-mmed.jpg"
+                            alt="Blade Runner" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Blade Runner 2049</h5>
+                        <p class="card-text"><b>año:</b>2017</p>
+                        <p class="card-text"><b>formato:</b> <img src="img/formato_Bluray.svg" alt="Blurary"
+                                width="50px">
+                        </p>
+                        <a href='#' class="btn btn-dark">Ver ficha</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgcard">
+                        <img class="card-img-top img-fluid"
+                            src="https://pics.filmaffinity.com/seven_se7en-734875211-mmed.jpg" alt="Seven (Se7en)" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Seven (Se7en)</h5>
+                        <p class="card-text"><b>año:</b>1995</p>
+                        <p class="card-text"><b>formato:</b> <img src="img/formato_Bluray.svg" alt="Blurary"
+                                width="50px">
+                        </p>
+                        <a href='#' class="btn btn-dark">Ver ficha</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgcard">
+                        <img class="card-img-top img-fluid" src="https://pics.filmaffinity.com/alien-747835256-mmed.jpg"
+                            alt="Alien, el octavo pasajero" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Alien, el octavo pasajero</h5>
+                        <p class="card-text"><b>año:</b>1979</p>
+                        <p class="card-text"><b>formato:</b> <img src="img/formato_Bluray.svg" alt="Blurary"
+                                width="50px">
+                        </p>
+                        <a href='#' class="btn btn-dark">Ver ficha</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgcard">
+                        <img class="card-img-top img-fluid"
+                            src="https://pics.filmaffinity.com/aliens-989223912-mmed.jpg" alt="Aliens: El regreso" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Aliens: El regreso</h5>
+                        <p class="card-text"><b>año:</b>1986</p>
+                        <p class="card-text"><b>formato:</b> <img src="img/formato_Bluray.svg" alt="Blurary"
+                                width="50px">
+                        </p>
+                        <a href='#' class="btn btn-dark">Ver ficha</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgcard">
+                        <img class="card-img-top img-fluid"
+                            src="https://pics.filmaffinity.com/aliens-989223912-mmed.jpg" alt="Aliens: El regreso" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-info">Aliens: El regreso</h5>
+                        <p class="card-text"><b>año:</b>1986</p>
+                        <p class="card-text"><b>formato:</b> <img src="img/formato_Bluray.svg" alt="Blurary"
+                                width="50px">
+                        </p>
+                        <a href='#' class="btn btn-dark">Ver ficha</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
     </div>
 

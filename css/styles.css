@@ -1,10 +1,11 @@
 /*INDEX*/
 #home .table td, #home .table th{
     vertical-align: middle !important;
+    text-align: center;
 }
-/*#home th img{
-    max-width: 50px;
-}*/
+#home td img{
+    max-width: 100px;
+}
 
 #home .card .imgcard{
     overflow: hidden;
