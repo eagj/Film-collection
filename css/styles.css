@@ -7,11 +7,19 @@
     max-width: 100px;
 }
 
-#home .card .imgcard{
+/* #home .card .imgcard{
     overflow: hidden;
     max-height:350px
-}
+} */
 
+#home .card .imgcard{
+    overflow: hidden;
+    max-height:78vh;
+} 
+#home .lateral-card{
+    height:100vh;
+    transition: all .5s ease;
+}
 
 
 /*FICHA*/
