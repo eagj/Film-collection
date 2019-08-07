@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody class="">
-                        <tr class="">
+                        <tr class="" onclick="showlat()">
                             <th scope=" row">Blade Runner</th>
                             <td><a href="#">1982</a></td>
                             <td class="d-none d-lg-table-cell">
@@ -61,7 +61,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col col-1 p-0 lateral-card d-none">
+            <div class="col col-1 p-0 lateral-card d-none" id="lateral" onclick="hidelat()">
                 <div class="card">
                     <div class="imgcard">
                         <img class="card-img-top img-fluid"
@@ -89,6 +89,33 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+        <script>
+            function showlat() {
+                let element = document.getElementById("lateral");
+                element.classList.remove("d-none");
+                element.classList.add("col-1");
+                let col = 1
+                for (i = 1; i <= 6; i++) {
+                    if (i <= 6) {
+                        console.log(col)
+                        col++
+                        element.classList.add("col-" + col);
+
+                    }
+
+                }
+
+            }
+            function hidelat() {
+                let element = document.getElementById("lateral");
+                element.classList.add("d-none");
+                //element.classList.remove("col-6");
+                for (col = 6; col >= 1; col--) {
+                    console.log(col)
+                    element.classList.remove("col-" + col);
+                }
+            }
+        </script>
 </body>
 
 </html>
