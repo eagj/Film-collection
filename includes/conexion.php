@@ -3,7 +3,7 @@
 $server = "mysql:host=localhost;dbname=pelis";
 //$bd = "pelis";
 $usuario = "pelis";
-$pass = "123456";
+$pass = "a1b2c3d4";
 
 
 try{
