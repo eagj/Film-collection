@@ -14,8 +14,14 @@
 
 #home .card .imgcard{
     overflow: hidden;
-    max-height:78vh;
+    /* max-height:78vh; */
+    height: 78vh;
 } 
+#home .card .imgcard img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
 #home .lateral-card{
     height:100vh;
     transition: all .5s ease;
