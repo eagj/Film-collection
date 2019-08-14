@@ -88,7 +88,7 @@ $resultado= $gsent->fetchAll();
 
         <?php foreach ($resultado as $row): ?>
          <!--Mostramos los resultados obtenidos-->
-            <div class="col-md-3 col-sm-6 my-2"><!--columna-->
+            <div class="col-xl-3 col-md-4 col-sm-6 my-2"><!--columna-->
                     <div class="card"><!--card-->
                         <div class="imgcard">
                             <a href="<?php echo $row['link_web']?>" target="_blank"><img class="card-img-top img-fluid" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" /></a>
