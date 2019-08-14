@@ -91,7 +91,7 @@ $resultado= $gsent->fetchAll();
             <div class="col-md-3 col-sm-6 my-2"><!--columna-->
                     <div class="card"><!--card-->
                         <div class="imgcard">
-                            <img class="card-img-top img-fluid" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" />
+                            <a href="<?php echo $row['link_web']?>"><img class="card-img-top img-fluid" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" /></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-info"><?php echo $row['titulo']?></h5>
