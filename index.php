@@ -89,15 +89,15 @@ $resultado= $gsent->fetchAll();
         <?php foreach ($resultado as $row): ?>
          <!--Mostramos los resultados obtenidos-->
             <div class="col-xl-2 col-md-4 col-sm-6 my-2"><!--columna-->
-                    <div class="card"><!--card-->
+                    <div class="tarjeta"><!--card-->
                         <div class="imgcard">
                             <a href="<?php echo $row['link_web']?>" target="_blank"><img class="image" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" /></a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title text-info"><?php echo $row['titulo']?></h5>
-                            <p class="card-text"><b>año:</b><?php echo $row['anio']?></p>
-                            <p class="card-text"><b>formato:</b> <?php echo $row['formato']?></p>
-                            <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>' class="btn btn-primary">Ver ficha</a>
+                        <div class="">
+                            <h5 class="titulo"><?php echo $row['titulo']?></h5>
+                            <p class="anio"><?php echo $row['anio']?></p>
+                            <p class="formato <?php echo $row['formato']?>"></p>
+                            <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>' class="btn btn-secondary text-white d-block rounded-0">Ver ficha</a>
                         </div>
                     </div><!--card-->
                 </div><!--columna-->
