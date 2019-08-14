@@ -33,7 +33,7 @@ $resultado= $gsent->fetchAll();
 <body>
 <div id="home">
     <h1 class="bg-info m-0 text-white p-5 text-center">Pelis y Series</h1>
-    <table class="table table-striped"><!--d-none-->
+    <table class="table table-striped d-none"><!--d-none-->
         <thead class="thead-dark">
             <tr class="text-center">
                 <th width="10%" scope="col">Foto</th>
@@ -83,12 +83,12 @@ $resultado= $gsent->fetchAll();
         </tbody>
     </table>
     <!--CARDS-->
-    <div id="cards" class="container d-none">
+    <div id="cards" class="container">
         <div class="row my-5"><!--row-->
 
         <?php foreach ($resultado as $row): ?>
          <!--Mostramos los resultados obtenidos-->
-            <div class="col-md-3 col-sm-6 my-2"><!--columna-->
+            <div class="col-md-2 col-sm-6 my-2"><!--columna-->
                     <div class="card"><!--card-->
                         <div class="imgcard">
                             <img class="card-img-top img-fluid" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" />
