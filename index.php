@@ -32,7 +32,10 @@ $resultado= $gsent->fetchAll();
 </head>
 <body>
 <div id="home">
-    <h1 class="bg-info m-0 text-white p-5 text-center">Pelis y Series</h1>
+    <header>
+        <button>por año</button>
+    </header>
+    <h1 class="bg-dark m-0 text-white p-1 text-center">Pelis y Series</h1>
     <table class="table table-striped d-none"><!--d-none-->
         <thead class="thead-dark">
             <tr class="text-center">
@@ -88,16 +91,16 @@ $resultado= $gsent->fetchAll();
 
         <?php foreach ($resultado as $row): ?>
          <!--Mostramos los resultados obtenidos-->
-            <div class="col-xl-2 col-md-4 col-sm-6 my-2"><!--columna-->
+            <div class="col-xl-3 col-md-4 col-sm-6 my-2"><!--columna-->
                     <div class="tarjeta"><!--card-->
                         <div class="imgcard">
                             <a href="<?php echo $row['link_web']?>" target="_blank"><img class="image" src="<?php echo $row['foto']?>-mmed.jpg" alt="<?php echo $row['titulo']?>" /></a>
                         </div>
-                        <div class="">
-                            <h5 class="titulo"><?php echo $row['titulo']?></h5>
-                            <p class="anio"><?php echo $row['anio']?></p>
+                        <div class="info p-2 w-100 position-absolute ">
+                            <h5 class="titulo m-0 text-center p-2"><?php echo $row['titulo']?></h5>
+                            <!-- <span class="anio badge badge-dark mr-2 p-2"><?php echo $row['anio']?></span> -->
                             <p class="formato <?php echo $row['formato']?>"></p>
-                            <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>' class="btn btn-secondary text-white d-block rounded-0">Ver ficha</a>
+                            <!-- <a href='ficha.php?idpeli=<?php echo $row['id_pelicula']?>' class="btn btn-secondary text-white d-block rounded-0">Ver ficha</a> -->
                         </div>
                     </div><!--card-->
                 </div><!--columna-->
