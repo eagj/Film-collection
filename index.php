@@ -33,7 +33,7 @@ $resultado= $gsent->fetchAll();
 <body>
 <div id="home">
     <header>
-        <button>por año</button>
+        <button >por año</button>
     </header>
     <h1 class="bg-dark m-0 text-white p-1 text-center">Pelis y Series</h1>
     <table class="table table-striped d-none"><!--d-none-->
