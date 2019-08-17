@@ -9,6 +9,7 @@
 
 #home .tarjeta{
     position: relative;
+    overflow: hidden;
 }
 #home .tarjeta .imgcard{
     overflow: hidden;    
@@ -29,7 +30,20 @@
     background: rgba(255,255,255,.8);
 }
 
-
+.modalDescrip{
+    top: 0;
+    background: rgba(0, 0, 0, .8);
+    height: 100%;
+    color: #fff;
+    transform:translate(-100%, -100%);
+    transition: transform .5s ease;
+}
+.modalDescrip.showModal{
+    transform:translate(0, 0)
+} 
+.modalDescrip .descrip {
+    font-size: .9em;
+}
 
 p.formato.Bluray {
     background: radial-gradient(ellipse at center, rgba(42,136,224,1) 0%, rgba(0,123,255,1) 100%);
